@@ -53,7 +53,7 @@ namespace adonet_03_2_2023_2
                 // обнулить грид
                 mainGrid.DataSource = null;
                 //заполнить датасет
-                _dataAdapter.Fill(_dataSet,"authors");
+                _dataAdapter.Fill(_dataSet);
                 //показать табл DataSet
                 mainGrid.DataSource = _dataSet.Tables["authors"];
                 TestConnection();
@@ -87,11 +87,9 @@ namespace adonet_03_2_2023_2
         private void btn_Upd_Click(object sender, EventArgs e)
         {
             var commandBilder = new SqlCommandBuilder(_dataAdapter);  //создаём новый билдер для дата адаптера
-            _dataAdapter.Update(_dataSet, "authors");
-            //Debug.WriteLine(commandBilder.GetInsertCommand().CommandText);
-            //Debug.WriteLine(commandBilder.GetUpdateCommand().CommandText);
-            //Debug.WriteLine(commandBilder.GetDeleteCommand().CommandText);
+            _dataAdapter.Update(_dataSet);
             MessageBox.Show("Данные обновлены");
+            GetData();
         }
 
         private void btn_allGoods_Click(object sender, EventArgs e)
@@ -111,5 +109,30 @@ namespace adonet_03_2_2023_2
             mainGrid.DataSource = null;
             mainGrid.DataSource = _dataSet.Tables["Deliveries"];
         }
+
+        private void btn_maxCount_Click(object sender, EventArgs e)
+        {
+            mainGrid.DataSource = null;
+            ExecuteQuery("select top 1 * from Deliveries order by [Amount] desc");
+            mainGrid.DataSource = _dataSet.Tables[0];
+        }
+
+        private void ExecuteQuery(string query)
+        {
+            _dataSet = new DataSet();
+            var connection = new SqlConnection(_connectionString);
+            _dataAdapter  =new SqlDataAdapter(query,connection);
+            _dataAdapter.Fill(_dataSet);
+        }
+
+        private void btn_minCount_Click(object sender, EventArgs e)
+        {
+            mainGrid.DataSource = null;
+            ExecuteQuery("select top 1 * from Deliveries order by [Amount]");
+            mainGrid.DataSource = _dataSet.Tables[0];
+        }
+
+
     }
+    
 }

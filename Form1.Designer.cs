@@ -35,6 +35,8 @@
             this.btn_allGoods = new System.Windows.Forms.Button();
             this.btn_AllSupliers = new System.Windows.Forms.Button();
             this.btn_allDelivery = new System.Windows.Forms.Button();
+            this.btn_maxCount = new System.Windows.Forms.Button();
+            this.btn_minCount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +106,33 @@
             this.btn_allDelivery.UseVisualStyleBackColor = true;
             this.btn_allDelivery.Click += new System.EventHandler(this.btn_allDelivery_Click);
             // 
+            // btn_maxCount
+            // 
+            this.btn_maxCount.Location = new System.Drawing.Point(722, 153);
+            this.btn_maxCount.Name = "btn_maxCount";
+            this.btn_maxCount.Size = new System.Drawing.Size(120, 42);
+            this.btn_maxCount.TabIndex = 7;
+            this.btn_maxCount.Text = "товар с max количеством";
+            this.btn_maxCount.UseVisualStyleBackColor = true;
+            this.btn_maxCount.Click += new System.EventHandler(this.btn_maxCount_Click);
+            // 
+            // btn_minCount
+            // 
+            this.btn_minCount.Location = new System.Drawing.Point(722, 211);
+            this.btn_minCount.Name = "btn_minCount";
+            this.btn_minCount.Size = new System.Drawing.Size(120, 42);
+            this.btn_minCount.TabIndex = 8;
+            this.btn_minCount.Text = "товар с min количеством";
+            this.btn_minCount.UseVisualStyleBackColor = true;
+            this.btn_minCount.Click += new System.EventHandler(this.btn_minCount_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 450);
+            this.Controls.Add(this.btn_minCount);
+            this.Controls.Add(this.btn_maxCount);
             this.Controls.Add(this.btn_allDelivery);
             this.Controls.Add(this.btn_AllSupliers);
             this.Controls.Add(this.btn_allGoods);
@@ -133,5 +157,7 @@
         private Button btn_allGoods;
         private Button btn_AllSupliers;
         private Button btn_allDelivery;
+        private Button btn_maxCount;
+        private Button btn_minCount;
     }
 }
