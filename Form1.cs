@@ -19,8 +19,24 @@ namespace adonet_03_2_2023_2
                 .ConnectionString;
             _dataAdapter = new();   // можно и так
             _dataSet = new DataSet();  // и так
+            GetData();
         }
+        private void GetData()
+        {
+            _dataSet = new DataSet();
+            var getAllTablesTExt =
+                "select * from Goods;" +
+                "select * from Supliers;" +
+                "select * from Deliveries;";
+            var connection = new  SqlConnection(_connectionString);
+            _dataAdapter = new SqlDataAdapter(getAllTablesTExt, connection);
+            _dataAdapter.TableMappings.Add("Table","Goods");
+            _dataAdapter.TableMappings.Add("Table1", "Supliers");
+            _dataAdapter.TableMappings.Add("Table2", "Deliveries");
+            _dataAdapter.Fill(_dataSet);
 
+
+        }
         private void btn_fill_Click(object sender, EventArgs e)
         {
             try
@@ -78,6 +94,22 @@ namespace adonet_03_2_2023_2
             MessageBox.Show("Данные обновлены");
         }
 
+        private void btn_allGoods_Click(object sender, EventArgs e)
+        {
+            mainGrid.DataSource = null;
+            mainGrid.DataSource = _dataSet.Tables["Goods"];
+        }
 
+        private void btn_AllSupliers_Click(object sender, EventArgs e)
+        {
+            mainGrid.DataSource = null;
+            mainGrid.DataSource = _dataSet.Tables["Supliers"];
+        }
+
+        private void btn_allDelivery_Click(object sender, EventArgs e)
+        {
+            mainGrid.DataSource = null;
+            mainGrid.DataSource = _dataSet.Tables["Deliveries"];
+        }
     }
 }

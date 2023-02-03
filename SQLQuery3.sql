@@ -12,10 +12,10 @@
 --)
 
 
-create table Deliveries(
-	id int identity (1,1) not null primary key,
-	Amount int not null,
-	DeliveryDate Datetime2 not null,
-	GoodsID int not null foreign key  references Goods(Id),
-	SupliersID int not null foreign key references Supliers(Id)
-	)
+--create table Deliveries(
+--	id int identity (1,1) not null primary key,
+--	Amount int not null,
+--	DeliveryDate Datetime2 not null,
+--	GoodsID int not null foreign key  references Goods(Id),
+--	SupliersID int not null foreign key references Supliers(Id)
+--	)

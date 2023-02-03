@@ -32,6 +32,9 @@
             this.btn_fill = new System.Windows.Forms.Button();
             this.btn_Upd = new System.Windows.Forms.Button();
             this.mainGrid = new System.Windows.Forms.DataGridView();
+            this.btn_allGoods = new System.Windows.Forms.Button();
+            this.btn_AllSupliers = new System.Windows.Forms.Button();
+            this.btn_allDelivery = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +74,44 @@
             this.mainGrid.Size = new System.Drawing.Size(613, 347);
             this.mainGrid.TabIndex = 3;
             // 
+            // btn_allGoods
+            // 
+            this.btn_allGoods.Location = new System.Drawing.Point(722, 53);
+            this.btn_allGoods.Name = "btn_allGoods";
+            this.btn_allGoods.Size = new System.Drawing.Size(120, 23);
+            this.btn_allGoods.TabIndex = 4;
+            this.btn_allGoods.Text = "все товары";
+            this.btn_allGoods.UseVisualStyleBackColor = true;
+            this.btn_allGoods.Click += new System.EventHandler(this.btn_allGoods_Click);
+            // 
+            // btn_AllSupliers
+            // 
+            this.btn_AllSupliers.Location = new System.Drawing.Point(722, 82);
+            this.btn_AllSupliers.Name = "btn_AllSupliers";
+            this.btn_AllSupliers.Size = new System.Drawing.Size(120, 23);
+            this.btn_AllSupliers.TabIndex = 5;
+            this.btn_AllSupliers.Text = "все поставщики";
+            this.btn_AllSupliers.UseVisualStyleBackColor = true;
+            this.btn_AllSupliers.Click += new System.EventHandler(this.btn_AllSupliers_Click);
+            // 
+            // btn_allDelivery
+            // 
+            this.btn_allDelivery.Location = new System.Drawing.Point(722, 111);
+            this.btn_allDelivery.Name = "btn_allDelivery";
+            this.btn_allDelivery.Size = new System.Drawing.Size(120, 23);
+            this.btn_allDelivery.TabIndex = 6;
+            this.btn_allDelivery.Text = "все поставки";
+            this.btn_allDelivery.UseVisualStyleBackColor = true;
+            this.btn_allDelivery.Click += new System.EventHandler(this.btn_allDelivery_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 450);
+            this.Controls.Add(this.btn_allDelivery);
+            this.Controls.Add(this.btn_AllSupliers);
+            this.Controls.Add(this.btn_allGoods);
             this.Controls.Add(this.mainGrid);
             this.Controls.Add(this.btn_Upd);
             this.Controls.Add(this.btn_fill);
@@ -94,5 +130,8 @@
         private Button btn_fill;
         private Button btn_Upd;
         private DataGridView mainGrid;
+        private Button btn_allGoods;
+        private Button btn_AllSupliers;
+        private Button btn_allDelivery;
     }
 }
